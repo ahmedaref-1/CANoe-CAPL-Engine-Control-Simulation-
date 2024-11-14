@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Panel" ControlName="AccelerationPedalEngineControlPanel">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X5b00b803e5d8ae4aa6e901bea18f1f78949c" ControlName="Static Text 4">
+      <Property Name="Name">X5b00b803e5d8ae4aa6e901bea18f1f78949c</Property>
+      <Property Name="Size">67, 27</Property>
+      <Property Name="Location">83, 226</Property>
+      <Property Name="Text">Speed Limit Reached</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X8842f17ae8681e4885e85e7e67dfd039116b" ControlName="LED Control 1">
+      <Property Name="Name">X8842f17ae8681e4885e85e7e67dfd039116b</Property>
+      <Property Name="Size">24, 24</Property>
+      <Property Name="Location">59, 226</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">2</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;Red&lt;/Color&gt;</Property>
+      <Property Name="SymbolConfiguration">8;16;;;;SpeedLimitReached_SystemVariable;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X8dfe0bcbe19ffe475deb781eaed59afca3dd" ControlName="LCD Control 1">
+      <Property Name="Name">X8dfe0bcbe19ffe475deb781eaed59afca3dd</Property>
+      <Property Name="Size">100, 33</Property>
+      <Property Name="Location">52, 143</Property>
+      <Property Name="BackColor">White</Property>
+      <Property Name="ColorOff">White</Property>
+      <Property Name="ColorOn">Black</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="NumberIntDigits">3</Property>
+      <Property Name="SymbolConfiguration">8;2;AccelerationPedalEngineControl_C;EngineControlECU;EngineControlSpeedMessage;EngineControlSpeedValueSignal;1;CAN;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xd7c6d1e1e1767e42e8eacf4e44e4974b714f" ControlName="Static Text 3">
+      <Property Name="Name">Xd7c6d1e1e1767e42e8eacf4e44e4974b714f</Property>
+      <Property Name="Size">214, 80</Property>
+      <Property Name="Location">114, 31</Property>
+      <Property Name="Font">Microsoft Sans Serif, 12.5pt, style=Bold</Property>
+      <Property Name="Text">Acceleration Pedal Engine Control Simulation</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X21948cb9e5df1e49aeea2d5e1858b64f9587" ControlName="Static Text 2">
+      <Property Name="Name">X21948cb9e5df1e49aeea2d5e1858b64f9587</Property>
+      <Property Name="Size">150, 39</Property>
+      <Property Name="Location">251, 256</Property>
+      <Property Name="Font">Microsoft Sans Serif, 12.25pt, style=Bold</Property>
+      <Property Name="Text">Acceleration Pedal
+</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X3d92e4f3eef66e41eeea1f3e39bc2212ba01" ControlName="Static Text 1">
+      <Property Name="Name">X3d92e4f3eef66e41eeea1f3e39bc2212ba01</Property>
+      <Property Name="Size">105, 21</Property>
+      <Property Name="Location">47, 256</Property>
+      <Property Name="Font">Microsoft Sans Serif, 12.25pt, style=Bold</Property>
+      <Property Name="Text">Speed Meter</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.AnalogGaugeControl, Vector.CANalyzer.Panels.AnalogGauge, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xdcb03027e96dde43f8e858eef0ae72be97a4" ControlName="Analog Gauge 1">
+      <Property Name="Name">Xdcb03027e96dde43f8e858eef0ae72be97a4</Property>
+      <Property Name="Size">285, 198</Property>
+      <Property Name="Location">-40, 69</Property>
+      <Property Name="ScaleMin">0</Property>
+      <Property Name="ScaleMax">260</Property>
+      <Property Name="LowerRangeLimit">100</Property>
+      <Property Name="UpperRangeLimit">180</Property>
+      <Property Name="MidColor">Orange</Property>
+      <Property Name="ScaleAngle">270</Property>
+      <Property Name="BackgroundColor">White</Property>
+      <Property Name="ArrowWidth">2</Property>
+      <Property Name="CenterColor">255, 12, 12, 12</Property>
+      <Property Name="LegendText">Km/h</Property>
+      <Property Name="LegendTextFont">Microsoft Sans Serif, 8.25pt, style=Bold</Property>
+      <Property Name="GaugeFont">Microsoft Sans Serif, 8.25pt, style=Bold</Property>
+      <Property Name="MainTicksNumber">13</Property>
+      <Property Name="CurrentPosition">0</Property>
+      <Property Name="LengthMainTicks">11</Property>
+      <Property Name="IsFrame">False</Property>
+      <Property Name="IsMargin">False</Property>
+      <Property Name="ScaleMargin">0</Property>
+      <Property Name="SymbolConfiguration">8;2;AccelerationPedalEngineControl_C;EngineControlECU;EngineControlSpeedMessage;EngineControlSpeedValueSignal;1;CAN;;-1;;;Value;;;0</Property>
+      <Property Name="CriticalProps" Member="AAEAAAD/////AQAAAAAAAAAEAQAAAC9TeXN0ZW0uUmVmbGVjdGlvbi5NZW1iZXJJbmZvU2VyaWFsaXphdGlvbkhvbGRlcgcAAAAETmFtZQxBc3NlbWJseU5hbWUJQ2xhc3NOYW1lCVNpZ25hdHVyZQpTaWduYXR1cmUyCk1lbWJlclR5cGUQR2VuZXJpY0FyZ3VtZW50cwEBAQEBAAMIDVN5c3RlbS5UeXBlW10GAgAAAAUuY3RvcgYDAAAAXFZlY3Rvci5DQU5hbHl6ZXIuUGFuZWxzLkFuYWxvZ0dhdWdlLCBWZXJzaW9uPTE3LjMuOTEuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBgQAAAA2VmVjdG9yLkNBTmFseXplci5QYW5lbHMuRGVzaWduLkdhdWdlQ3JpdGljYWxQcm9wZXJ0aWVzBgUAAAAyVm9pZCAuY3RvcihEb3VibGUsIERvdWJsZSwgRG91YmxlLCBEb3VibGUsIERvdWJsZSkGBgAAAFAuY3RvcihTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlKQEAAAAKCw==">
+        <Argument>0</Argument>
+        <Argument>260</Argument>
+        <Argument>0</Argument>
+        <Argument>100</Argument>
+        <Argument>180</Argument>
+      </Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X42dc3abfe2dc6e4cb4eb7f8ea8e0d0346343" ControlName="Switch / Indicator 1">
+      <Property Name="Name">X42dc3abfe2dc6e4cb4eb7f8ea8e0d0346343</Property>
+      <Property Name="Size">114, 149</Property>
+      <Property Name="Location">265, 101</Property>
+      <Property Name="SymbolConfiguration">8;16;;;;AccelerationPadel_SystemVariable;1;;;-1;;;Value;;;0</Property>
+      <Property Name="TabIndex">1</Property>
+      <Property Name="Epsilon">0</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="StartValue">0</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;</Property>
+      <Property Name="SwitchValuesVT">1;2;0/Lower/0;1/Lower/1</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SwitchValuesRx">1;2;0;1</Property>
+    </Object>
+    <Property Name="Name">Panel</Property>
+    <Property Name="Size">409, 338</Property>
+    <Property Name="Location">0, 0</Property>
+    <Property Name="BackColor">255, 255, 255, 255</Property>
+  </Object>
+</Panel>
