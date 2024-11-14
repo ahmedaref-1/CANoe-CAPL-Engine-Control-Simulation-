@@ -1,0 +1,84 @@
+﻿/*@!Encoding:65001*/
+
+// Include required libraries (if any)
+includes {
+  // No specific includes defined for this script
+}
+
+// Variable Definitions
+variables {
+  // Timer for reading acceleration pedal values
+  msTimer AccelerationPedalReadTimer;
+  
+  // Period for the Acceleration Pedal Timer (in milliseconds)
+  const int AccelerationPedalReadTimerPeriod = 200;
+
+  // Command for acceleration
+  const int ACCELERATION_COMMAND = 1;
+
+  // Command for deceleration
+  const int DECELERATION_COMMAND = 0;
+
+  // Initial value for pedal set to deceleration command
+  int AccelerationPedalValue = DECELERATION_COMMAND;
+
+  // Message object for sending pedal commands
+  message AccelerationPedalCommandMessage MsgObj_AccelerationPedalCommandMessage;
+
+  // Speed threshold for limiting
+  const int SPEED_LIMIT_THRESHOLD = 180;
+
+  // Variable to store received speed value from engine control message
+  int ReceivedSpeedValue;
+}
+
+// Initialization Event on Script Start
+on start {
+  // Display start message to indicate the script is running
+  write("##### ACCELERATION PEDAL CAPL SCRIPT #####");
+  
+  // Initialize and start the pedal reading timer with a defined period
+  setTimer(AccelerationPedalReadTimer, AccelerationPedalReadTimerPeriod);
+  
+  // Display the running status of the timer for debugging purposes
+  write("Running Status: %d", AccelerationPedalReadTimer.isRunning());
+}
+
+// System Variable Change Event for Acceleration Pedal
+on sysvar AccelerationPadel_SystemVariable {
+  // Log message when the acceleration state changes
+  write("Changing Acceleration State");
+}
+
+// Timer Event to Read Acceleration Pedal
+on timer AccelerationPedalReadTimer {
+  // Read the current value of the acceleration pedal from system variable
+  AccelerationPedalValue = @sysvar::AccelerationPadel_SystemVariable;
+
+  // Set the pedal value in the message signal for transmission
+  MsgObj_AccelerationPedalCommandMessage.AccelerationPedalCommandSignal.phys = AccelerationPedalValue;
+  
+  // Transmit the acceleration pedal command message
+  output(MsgObj_AccelerationPedalCommandMessage);
+
+  // Restart the timer for continuous monitoring of the pedal value
+  setTimer(AccelerationPedalReadTimer, AccelerationPedalReadTimerPeriod);
+}
+
+// Message Event for Receiving Engine Speed
+on message EngineControlSpeedMessage {
+  // Capture the received speed value from the incoming engine control message
+  ReceivedSpeedValue = this.EngineControlSpeedValueSignal;
+  
+  // Log the received speed value for monitoring
+  write("Received Speed is: %d", ReceivedSpeedValue);
+
+  // Check if the received speed exceeds the threshold
+  if (ReceivedSpeedValue >= SPEED_LIMIT_THRESHOLD) {
+    // Set system variable to indicate speed limit has been reached
+    @sysvar::SpeedLimitReached_SystemVariable = 1;
+  } else {
+    // Reset system variable to indicate speed is below the threshold
+    @sysvar::SpeedLimitReached_SystemVariable = 0;
+  }
+}
