@@ -1,0 +1,65 @@
+﻿/*@!Encoding:65001*/
+
+// Include required libraries (if any)
+includes {
+  // No specific includes defined for this script
+}
+
+// Variable Definitions
+variables {
+  // Command for acceleration
+  const int ACCELERATION_COMMAND = 1;
+
+  // Command for deceleration
+  const int DECELERATION_COMMAND = 0;
+  
+  // Upper speed limit value
+  const int SPEED_UPPER_LIMIT = 220;
+  
+  // Lower speed limit value
+  const int SPEED_LOWER_LIMIT = 0;
+  
+  // Variable to store the current speed value, initialized to the lower speed limit
+  int CurrentSpeedValue = SPEED_LOWER_LIMIT;
+  
+  // Message object for sending speed control information to the engine
+  message EngineControlSpeedMessage MsgObj_EngineControlSpeedMessage;
+}
+
+// Initialization on Script Start
+on start {
+  // Entry point - display script start message
+  write("##### ENGINE CONTROL CAPL SCRIPT #####");
+}
+
+// Message Event for Receiving Acceleration Pedal Command
+on message AccelerationPedalCommandMessage {
+  // Check if the received command is for acceleration
+  if (this.AccelerationPedalCommandSignal.phys == ACCELERATION_COMMAND) {
+    // Log the acceleration command state
+    write("Received State ACCELERATION_COMMAND");
+    
+    // Increase speed while ensuring it does not exceed the upper speed limit
+    if (CurrentSpeedValue >= SPEED_UPPER_LIMIT) {
+      CurrentSpeedValue = SPEED_UPPER_LIMIT;
+    } else {
+      CurrentSpeedValue++;
+    }
+  } 
+  // If the command is for deceleration
+  else {
+    // Log the deceleration command state
+    write("Received State CMD_DECELERATE Command");
+    
+    // Decrease speed while ensuring it does not go below the lower speed limit
+    if (CurrentSpeedValue <= SPEED_LOWER_LIMIT) {
+      CurrentSpeedValue = SPEED_LOWER_LIMIT;
+    } else {
+      CurrentSpeedValue--;
+    }
+  }
+  
+  // Update and send the current speed value to the engine control unit
+  MsgObj_EngineControlSpeedMessage.EngineControlSpeedValueSignal.phys = CurrentSpeedValue;
+  output(MsgObj_EngineControlSpeedMessage);
+}
