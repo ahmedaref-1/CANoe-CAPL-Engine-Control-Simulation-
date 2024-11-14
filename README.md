@@ -13,6 +13,7 @@ This project simulates a **CAN network** with two nodes managed by CAPL scripts,
 1. **CAN Network Setup** 🌐  
    - Configured in CANoe with two nodes: `EngineControl` and `AccelerationPedal`.
    - The setup enables simulated control over vehicle acceleration and speed limit monitoring.
+![image](https://github.com/user-attachments/assets/e34cdcd1-59ad-4fa9-8af0-5ca336d7b790)
 
 2. **CAPL Scripting** 📜  
    - **System Variables**: Manage event-driven actions, like toggling acceleration and deceleration.
@@ -20,16 +21,22 @@ This project simulates a **CAN network** with two nodes managed by CAPL scripts,
 
 3. **Database** 🗄️  
    - Contains detailed message and signal definitions for each node, ensuring precise data flow.
+![image](https://github.com/user-attachments/assets/3fb41ba1-0208-4130-80f1-d7843d5961ef)
+
 
 4. **Panel View** 🎛️  
    - **Pedal Simulation Button**: Simulate pedal press events to trigger acceleration and deceleration.
    - **Analog Speed Gauge**: Visualizes the vehicle’s speed, acting as a virtual speedometer.
    - **Digital Speed Counter**: Displays the real-time numerical speed value.
    - **Red LED Threshold Alarm**: Lights up when the speed crosses the set threshold, alerting the user to potential overspeeding.
+![image](https://github.com/user-attachments/assets/f19a128d-13f1-4daa-9b34-a1f19491da08)
+
 
 5. **CAN Trace View** 🔍  
    - Offers comprehensive monitoring of all messages on the CAN bus, showing each message's **ID**, **value**, and **timing**.
    - Allows for real-time analysis and verification of the communication between nodes, ensuring accurate message flow and timing across the network.
+![image](https://github.com/user-attachments/assets/81e8cf16-26a1-4b93-aacc-3272f0a5b250)
+
 
 These components work together to create a detailed and interactive CAN network simulation that accurately reflects vehicle dynamics and control mechanisms in a virtual environment.
 
